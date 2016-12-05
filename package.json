@@ -1,0 +1,23 @@
+{
+  "name": "dumbdog",
+  "version": "1.0.0",
+  "description": "Dumb dog - multiplayer damn dog",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "human-readable-ids": "^1.0.1",
+    "short-id-gen": "^1.1.2",
+    "socket.io": "^1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dumb",
+    "dog",
+    "wikihow"
+  ],
+  "author": "offbeatwitch",
+  "license": "MIT"
+}
