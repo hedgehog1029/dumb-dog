@@ -1,3 +1,8 @@
+function slugify(str) {
+	return str.replace(/\s+/g, "-")
+			.toLowerCase()
+}
+
 var GameRound = {
 	"controller": function(c) {
 		return {
@@ -128,6 +133,10 @@ var CreateOrJoinWindow = {
 		return {
 			user: function(name) {
 				localStorage.username = name;
+			},
+			join: function(e) {
+				var id = slugify(document.getElementById("joiner").value)
+				socket.emit("join room", { id: id });
 			}
 		}
 	},
@@ -151,9 +160,7 @@ var CreateOrJoinWindow = {
 					m("i.fa fa-sign-in fa-5x"),
 					m("p", "Join an already in-session room!"),
 					m("input.u-full-width#joiner", { type: "text", placeholder: "Room ID" }),
-					m("a.button button-primary", { onclick: function(e) {
-						socket.emit("join room", { id: document.getElementById("joiner").value });
-					}}, "Join a Room")
+					m("a.button button-primary", { onclick: ctrl.join }, "Join a Room")
 				])
 			])
 		])
